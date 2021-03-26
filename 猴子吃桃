@@ -1,0 +1,11 @@
+#include<stdio.h>
+
+int main()
+{
+  int n, i, count = 1;
+	scanf("%d", &n);
+	for (i = 1; i < n; i++)
+		count = (count + 1) * 2;0
+	printf("猴子在第%d天吃的剩一个桃子\n第一天吃的桃子有%d\n", n, count);
+	return 0;
+}
