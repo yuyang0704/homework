@@ -1,0 +1,72 @@
+#include<stdio.h>
+#include<math.h>
+
+int main()
+{
+
+	int a, b, d, choose;
+	double x, x1, x2, p, m, n, o;
+	char c;
+	printf("四则运算输入1\n平方根输入2\n求倒数输入3\n求幂次方输入4\n求一元二次方程的解输入5\n");
+	scanf("%d", &choose);
+	if (choose == 1)
+	{
+		printf("请输入算式：\n");
+		scanf("%d%c%d", &a, &c, &b);
+		if (c == '+')
+			printf("%d%c%d=%d", a, c, b, a + b);
+		else if (c == '-')
+			printf("%d%c%d=%d", a, c, b, a - b);
+		else if (c == '*')
+			printf("%d%c%d=%d", a, c, b, a * b);
+		else if (c == '/')
+			printf("%d%c%d=%d", a, c, b, a / b);
+		else
+			printf("It is error!");
+	}
+	else if (choose == 2)
+	{
+		printf("请输入要开方的数字：\n");
+		scanf("%d", &a);
+		printf("%d的平方根为%lf", a, sqrt(a));
+	}
+	else if (choose == 3)
+	{
+		printf("请输入要求倒的数字：\n");
+		scanf("%lf", &x);
+		printf("%lf求倒数为%lf", x, 1 / x);
+	}
+	else if (choose == 4)
+	{
+		printf("请输入底数：\n");
+		scanf("%d", &a);
+		printf("请输入指数：\n");
+		scanf("%d", &b);
+		d = a;
+		for (int i = 1; i < b; i++)
+		{
+			a = a * d;
+		}
+		printf("%d的%d次为:%d\n", d, b, a);
+	}
+	else if(choose==5)
+	{
+		printf("输入一个一元二次方程（Ax^2+Bx+C=0）的系数A,B,C\n");
+		scanf("%lf%lf%lf", &m, &n, &o);
+		p = n * n - 4 * m*o;
+		if (p < 0)
+			printf("此方程无解\n");
+		else
+		{
+			x1 = (-n + sqrt(p)) / (2 * m);
+			x2 = (-n - sqrt(p)) / (2 * m);
+			if (x1 == x2)
+				printf("此方程有唯一解:%lf\n", x1);
+			else
+				printf("此方程有两解:%lf\t%lf\n", x1, x2);
+		}
+	}
+	else
+		printf("It is error!");
+	return 0;
+}
